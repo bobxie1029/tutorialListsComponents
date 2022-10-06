@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tutorial } from 'src/app/models/tutorial.model';
+import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
   selector: 'app-add-tutorial',
@@ -15,7 +16,7 @@ export class AddTutorialComponent implements OnInit {
   };
   submitted = false;
 
-  constructor() { }
+  constructor(private tutorialService: TutorialService) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +28,7 @@ export class AddTutorialComponent implements OnInit {
     };
 
     console.log(data);
+    this.tutorialService.create(data);
   }
 
   newTutorial(): void {
