@@ -1,0 +1,40 @@
+.list-group-mine {
+    background-color: gray;
+    border-top: 1px solid #0091b5;
+    border-left-color: #fff;
+    border-right-color: #fff;
+  }
+  
+  .list-group-item-mine {
+    background-color: burlywood;
+    color: red;
+  }
+
+  .container {
+    width: 500px;
+    background-color: gray;
+  }
+
+  .row {
+    display: flex;
+
+  }
+
+  .col {
+    flex:1;
+    border-style: solid;
+    border-bottom: black;
+    background-color: burlywood;
+    margin:  10px;
+    padding: 0px;
+    width: 20px;
+  }
+  .col-wide {
+    flex:1;
+    border-style: solid;
+    border-bottom: black;
+    background-color: burlywood;
+    margin:  10px;
+    padding: 0px;
+    width: 200px;
+  }

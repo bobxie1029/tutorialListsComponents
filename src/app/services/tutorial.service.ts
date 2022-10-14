@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tutorial } from '../models/tutorial.model';
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
+const baseUrl = 'http://localhost:8086/api/tutorials';
 
 @Injectable({
   providedIn: 'root'
@@ -32,20 +32,27 @@ export class TutorialService {
 ];
 count: number = 0;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getAll(): Tutorial[] {
-    return this.tutorials;
-    this.count = 3;
+  // getAll(): Tutorial[] {
+  //   return this.tutorials;
+  //   this.count = 3;
+  // }
+
+  getAll(): Observable<Tutorial[]> {
+    return this.http.get<Tutorial[]>(baseUrl);
   }
-
  
-  create(data:Tutorial): Tutorial {
-     this.count++;
-    data.id = this.count;
-    data.published = true;
-    this.tutorials.push(data);
-    return data;
+  // create(data:Tutorial): Tutorial {
+  //    this.count++;
+  //   data.id = this.count;
+  //   data.published = true;
+  //   this.tutorials.push(data);
+  //   return data;
+  // }
+
+  create(data: any): Observable<any> {
+    return this.http.post(baseUrl, data);
   }
 
 }

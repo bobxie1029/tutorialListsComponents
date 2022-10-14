@@ -34,9 +34,26 @@ tutorials?: Tutorial[];
 
   constructor(private tutorialService: TutorialService) { }
 
-  ngOnInit(): void {
-    this.tutorials = this.tutorialService.getAll();
+  // ngOnInit(): void {
+  //   this.tutorials = this.tutorialService.getAll();
 
+  // }
+
+  ngOnInit(): void {
+    console.log('called ngOnInit')
+    this.retrieveTutorials();
+  }
+
+  retrieveTutorials(): void {
+    this.tutorialService.getAll()
+      .subscribe(
+        data => {
+          this.tutorials = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 }

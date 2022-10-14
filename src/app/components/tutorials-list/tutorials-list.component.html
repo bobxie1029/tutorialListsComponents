@@ -1,11 +1,28 @@
 <p>tutorials-list works!</p>
 
 <h4>Tutorials List</h4>
-<ul class="list-group">
+<!-- <ul class="list-group-mine">
   <li
-    class="list-group-item"
+    class="list-group-item-mine"
     *ngFor="let tutorial of tutorials; let i = index"
   >
     {{ tutorial.title }}
   </li>
-</ul>
+</ul> -->
+
+<div class ='container'>
+    <div class = "row" *ngFor="let tutorial of tutorials; let i = index">
+        <div class ="col"> 
+            {{ tutorial. id}}
+        </div>
+        <div class ="col"> 
+            {{ tutorial.title }}
+        </div>
+        <div class ="col-wide"> 
+            {{ tutorial.description }}
+        </div>
+
+        <div class ="col"> 
+            {{ tutorial. published}}
+        </div>
+</div>
